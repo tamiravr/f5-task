@@ -3,9 +3,9 @@
 Using AI tools for this challenge is allowed. Be honest here — an accurate
 "I used AI heavily" is worth more to us than an inaccurate "I did not".
 
-**Did you use AI tools?** (yes / no):
+**Did you use AI tools?** (yes / no): yes
 
-**Which ones?** (e.g. ChatGPT, Claude, Copilot, Cursor):
+**Which ones?** (e.g. ChatGPT, Claude, Copilot, Cursor): ChatGPT
 
 > If you answered **no**, write "N/A" in sections 1 and 2 and skip to
 > section 3. That is a perfectly good answer.
@@ -16,9 +16,16 @@ Using AI tools for this challenge is allowed. Be honest here — an accurate
 
 List the main prompts you used. Paraphrasing is fine.
 
-1. `...`
-2. `...`
-3. `...`
+
+
+""
+
+"Explain each instruction in the proxy Dockerfile and why changing the order of COPY and RUN resolves the build failure."
+
+1. `Review the F5 DevOps Intern Challenge repository and help me create a step-by-step plan.`
+2. `Analyze the Docker build failure using the terminal logs. Help me identify the root cause and understand how to fix it`
+3. `Explain instructions in the proxy Dockerfile.`
+
 
 ---
 

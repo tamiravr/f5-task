@@ -18,13 +18,11 @@ List the main prompts you used. Paraphrasing is fine.
 
 
 
-""
-
-"Explain each instruction in the proxy Dockerfile and why changing the order of COPY and RUN resolves the build failure."
-
 1. `Review the F5 DevOps Intern Challenge repository and help me create a step-by-step plan.`
 2. `Analyze the Docker build failure using the terminal logs. Help me identify the root cause and understand how to fix it`
 3. `Explain instructions in the proxy Dockerfile.`
+4. `"Analyze the HTTP 502 failure and validate the Nginx upstream configuration.`
+
 
 
 ---

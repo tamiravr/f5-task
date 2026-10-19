@@ -140,7 +140,8 @@ GitHub Actions CI pipeline completed successfully on the fix/f5-challenge branch
 
 Optional. Answer only the ones you got to — number them, skip the rest.
 
->
+>1. I changed the proxy's base image from ubuntu:24.04 to nginx:stable-alpine to reduce its size. I also removed packages like git, vim, and htop because they are not needed to run Nginx. I kept curl since o ur healthcheck uses it.After making the changes, I ran ./scripts/run-tests.sh to make sure everything still worked. Both integration tests passed, and the script exited with code 0.
+
 
 ---
 

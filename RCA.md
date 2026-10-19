@@ -79,13 +79,35 @@ The integration tests still failed during startup, indicating a separate readine
 ## Defect 3: Tests still fail after fixing defect 2
 
 ### Symptom / error output
+After fixing the Nginx upstream configuration, the integration tests still failed with HTTP 502 Bad Gateway during startup.
+
+However, requests through Nginx succeeded once the backend finished initializing.
 
 ### How I diagnosed it
 
+Ran bash ./scripts/run-tests.sh and examined the container logs.
+
+Observed that the backend loaded its configuration before starting the HTTP server.
+
+Verified that /api/info returned HTTP 200 once the backend was ready.
+
+Identified that the existing depends_on configuration did not wait for application readiness.
+
 ### Root cause
+The backend takes approximately 8 seconds to initialize before listening on port 8080.
+
+Docker Compose's default depends_on condition only ensures that containers have started, not that their applications are ready.
+
+As a result, the integration tests started before the backend could accept connections.
 
 ### Fix, and why I chose it over the alternatives
+Added a healthcheck to the proxy that verifies the /api/info endpoint and configured the test runner to depend on the proxy's service_healthy condition.
 
+This ensures that the complete request path is operational before integration tests begin.
+
+I chose a healthcheck over a fixed sleep delay because it verifies actual service readiness instead of assuming a fixed startup time, while allowing a configurable number of retries.
+
+to verify it I noticed that The initial integration test run passed successfully and additional repeated runs will be used to confirm reliability.
 ---
 
 ## Defect 4: CI pipeline fails

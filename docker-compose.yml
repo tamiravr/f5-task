@@ -16,11 +16,19 @@ services:
       - "8081:80"
     depends_on:
       - backend
+        # Verify that Nginx can successfully forward requests to the backend.
+    healthcheck:
+      test: ["CMD", "curl", "-fsS", "http://127.0.0.1/api/info"]
+      interval: 2s
+      timeout: 2s
+      retries: 15
 
   test-runner:
     build:
       context: ./test-runner
+  # Wait until the proxy and backend are ready before running tests.
     depends_on:
-      - proxy
+      proxy:
+        condition: service_healthy
     environment:
       - PROXY_URL=http://proxy:80

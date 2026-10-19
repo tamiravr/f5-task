@@ -23,6 +23,8 @@ List the main prompts you used. Paraphrasing is fine.
 3. `Explain instructions in the proxy Dockerfile.`
 4. `"Analyze the HTTP 502 failure and validate the Nginx upstream configuration.`
 
+4. `Analyze the failing integration tests, identify possible root causes, and suggest alternative solutions with their trade-offs to help me choose the most appropriate approach.`
+
 
 
 ---

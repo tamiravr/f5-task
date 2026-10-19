@@ -40,7 +40,7 @@ Describe **one concrete case** where the AI's answer was wrong, outdated, or
 sub-optimal. Cover: what it suggested, how you noticed it was wrong, and what
 you did instead. 3–5 sentences.
 
-> ...
+> The AI suggested using Docker Compose healthchecks to solve the startup race condition, describing them as adaptable to different startup times. However, I noticed that the configuration included a limit of 15 consecutive failed checks, which the AI initially did not address. After questioning this, we clarified that the service could be marked unhealthy if the startup time exceeded the configured retry threshold. I decided to keep the healthcheck approach because it verifies actual service readiness, while recognizing the importance of configuring appropriate retry limits.
 
 ---
 

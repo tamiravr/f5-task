@@ -1,12 +1,11 @@
-# Proxy image inherited from the previous team.
 
-FROM ubuntu:24.04
+# Use the official lightweight Nginx image based on Alpine Linux.
+FROM nginx:stable-alpine
 
-RUN apt-get update && \
-    apt-get install -y nginx curl htop vim git
+# curl is required by the Docker Compose healthcheck.
+RUN apk add --no-cache curl
 
-# Install Nginx before copying our config to avoid a package configuration
-# conflict and an interactive prompt during the image build.
+# Replace the default Nginx configuration with our proxy configuration.
 COPY nginx.conf /etc/nginx/nginx.conf
 
 EXPOSE 80

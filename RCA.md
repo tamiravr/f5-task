@@ -113,13 +113,24 @@ to verify it I noticed that The initial integration test run passed successfully
 ## Defect 4: CI pipeline fails
 
 ### Symptom / error output
+The CI workflow executes ./scripts/run-tests.sh directly, while the script was tracked by Git without executable permissions (100644).
 
 ### How I diagnosed it
 
+Inspected .github/workflows/ci.yml and identified how the test script is executed.
+
+Ran git ls-files -s scripts/run-tests.sh and confirmed the file mode was 100644.
+
+Compared direct execution with running the script through Bash.
+
 ### Root cause
 
-### Fix
+The test script was missing the executable bit in Git. Direct execution on Linux requires executable permissions, unlike running the script through bash.
 
+### Fix
+Used chmod +x scripts/run-tests.sh to make the script executable and staged the permission change in Git (100644 → 100755).
+
+I chose this approach over modifying the CI command to use Bash because it also supports direct execution for anyone cloning the repository, as documented in the README.
 ---
 
 ## Bonus questions

@@ -19,11 +19,16 @@ List the main prompts you used. Paraphrasing is fine.
 
 
 1. `Review the F5 DevOps Intern Challenge repository and help me create a step-by-step plan.`
+
 2. `Analyze the Docker build failure using the terminal logs. Help me identify the root cause and understand how to fix it`
+
 3. `Explain instructions in the proxy Dockerfile.`
+
 4. `"Analyze the HTTP 502 failure and validate the Nginx upstream configuration.`
 
-4. `Analyze the failing integration tests, identify possible root causes, and suggest alternative solutions with their trade-offs to help me choose the most appropriate approach.`
+5. `Analyze the failing integration tests, identify possible root causes, and suggest alternative solutions with their trade-offs to help me choose the most appropriate approach.`
+
+6. `Analyze the CI workflow configuration, identify possible execution issues, and compare alternative fixes`
 
 
 

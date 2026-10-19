@@ -131,6 +131,9 @@ The test script was missing the executable bit in Git. Direct execution on Linux
 Used chmod +x scripts/run-tests.sh to make the script executable and staged the permission change in Git (100644 → 100755).
 
 I chose this approach over modifying the CI command to use Bash because it also supports direct execution for anyone cloning the repository, as documented in the README.
+
+Verification: Confirmed the Git mode change and successfully ran ./scripts/run-tests.sh locally with exit code 0.
+GitHub Actions CI pipeline completed successfully on the fix/f5-challenge branch, confirming that the test script runs correctly in the GitHub-hosted Ubuntu environment.
 ---
 
 ## Bonus questions
